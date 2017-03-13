@@ -2,15 +2,53 @@
   "name": "videojs-playbackrate-adjuster",
   "version": "0.0.0",
   "description": "A Video.js 6 middleware that adjusts controls based on playback rate",
-  "main": "index.js",
+  "main": "dist/es5/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "sb-build",
+    "clean": "sb-clean",
+    "lint": "sb-lint",
+    "start": "sb-start",
+    "test": "sb-test",
+    "watch": "sb-watch",
+    "prepublish": "npm run build",
+    "postversion": "sb-release"
   },
   "keywords": [
+    "videojs",
     "videojs-middleware",
-    "videojs-plugin",
-    "videojs"
+    "videojs-plugin"
   ],
   "author": "Gary Katsevman <me@gkatsev.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "jsnext:main": "src/js/index.js",
+  "engines": {
+    "node": ">=4.4.0"
+  },
+  "generator-videojs-plugin": {
+    "version": "3.1.1"
+  },
+  "browserify-shim": "node_modules/videojs-spellbook/config/shim.config.js",
+  "spellbook": {
+    "css": false,
+    "lang": false,
+    "docs": false
+  },
+  "files": [
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "dist/browser",
+    "dist/docs",
+    "dist/es5",
+    "dist/lang",
+    "docs/",
+    "index.html",
+    "src/"
+  ],
+  "dependencies": {
+    "video.js": "^6.0.0-RC.5"
+  },
+  "devDependencies": {
+    "videojs-spellbook": "^2.0.2"
+  }
 }
