@@ -12,11 +12,19 @@
   </style>
 </head>
 <body>
-  <video id="videojs-playbackrate-adjuster-player" class="video-js vjs-default-skin" controls>
-    <source src="//d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8" type="application/x-mpegurl">
-    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-    <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
-  </video>
+  <h1>videojs-playbackrate-adjuster</h1>
+
+  <p>A Video.js 6 middleware that adjusts controls based on playback rate.
+  <p>When the playback rate is adjusted in from the menu, the middleware tells the player that the duration and times have changes and then uses the current playback rate to adjust the times in the control bar.
+  <p>For example, when the player is playing back in 2x, a 20 minute video will look like a 10 minute video.
+
+  <div>
+    <video id="videojs-playbackrate-adjuster-player" class="video-js vjs-default-skin" controls>
+      <source src="//d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8" type="application/x-mpegurl">
+      <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+      <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
+    </video>
+  </div>
 
   <script src="node_modules/video.js/dist/video.js"></script>
   <script src="dist/browser/videojs-playbackrate-adjuster.js"></script>
