@@ -1,0 +1,16 @@
+{
+  "name": "videojs-playbackrate-adjuster",
+  "version": "0.0.0",
+  "description": "A Video.js 6 middleware that adjusts controls based on playback rate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "videojs-middleware",
+    "videojs-plugin",
+    "videojs"
+  ],
+  "author": "Gary Katsevman <me@gkatsev.com>",
+  "license": "MIT"
+}
