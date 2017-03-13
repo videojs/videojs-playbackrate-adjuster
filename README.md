@@ -11,6 +11,8 @@ npm install --save videojs-playbackrate-adjuster
 ## Usage
 
 To include videojs-playbackrate-adjuster on your website or web application, use any of the following methods.
+Since it's a middleware and attaches itself to Video.js automatically,
+it only needs to be included or required.
 
 ### `<script>` Tag
 
@@ -21,8 +23,6 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script src="//path/to/videojs-playbackrate-adjuster.min.js"></script>
 <script>
   var player = videojs('my-video');
-
-  player.playbackrateAdjuster();
 </script>
 ```
 
@@ -33,14 +33,11 @@ When using with Browserify, install videojs-playbackrate-adjuster via npm and `r
 ```js
 var videojs = require('video.js');
 
-// The actual plugin function is exported by this module, but it is also
-// attached to the `Player.prototype`; so, there is no need to assign it
-// to a variable.
+// The actual middleware function is exported by this module, but it is also
+// attached to Video.js; so, there is no need to assign it to a variable.
 require('videojs-playbackrate-adjuster');
 
 var player = videojs('my-video');
-
-player.playbackrateAdjuster();
 ```
 
 ### RequireJS/AMD
@@ -50,14 +47,12 @@ When using with RequireJS (or another AMD library), get the script in whatever w
 ```js
 require(['video.js', 'videojs-playbackrate-adjuster'], function(videojs) {
   var player = videojs('my-video');
-
-  player.playbackrateAdjuster();
 });
 ```
 
 ## License
 
-MIT. Copyright (c) Gary Katsevman &lt;me@gkatsev.com&gt;
+MIT. Copyright (c) Gary Katsevman <me@gkatsev.com>
 
 
 [videojs]: http://videojs.com/
