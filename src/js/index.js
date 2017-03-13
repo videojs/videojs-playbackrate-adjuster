@@ -1,49 +1,38 @@
 import videojs from 'video.js';
 
-// Default options for the plugin.
-const defaults = {};
+const playbackrateAdjuster = function(player) {
+  let tech;
 
-// Cross-compatibility for Video.js 5 and 6.
-const registerPlugin = videojs.registerPlugin || videojs.plugin;
-// const dom = videojs.dom || videojs;
-
-/**
- * Function to invoke when the player is ready.
- *
- * This is a great place for your plugin to initialize itself. When this
- * function is called, the player will have its DOM and child components
- * in place.
- *
- * @function onPlayerReady
- * @param    {Player} player
- *           A Video.js player.
- * @param    {Object} [options={}]
- *           An object of options left to the plugin author to define.
- */
-const onPlayerReady = (player, options) => {
-  player.addClass('vjs-playbackrate-adjuster');
-};
-
-/**
- * A video.js plugin.
- *
- * In the plugin function, the value of `this` is a video.js `Player`
- * instance. You cannot rely on the player being in a "ready" state here,
- * depending on how the plugin is invoked. This may or may not be important
- * to you; if not, remove the wait for "ready"!
- *
- * @function playbackrateAdjuster
- * @param    {Object} [options={}]
- *           An object of options left to the plugin author to define.
- */
-const playbackrateAdjuster = function(options) {
-  this.ready(() => {
-    onPlayerReady(this, videojs.mergeOptions(defaults, options));
+  player.on('ratechange', function() {
+    tech.trigger('durationchange');
+    tech.trigger('timeupdate');
   });
+
+  return {
+    setSource(srcObj, next) {
+      next(null, srcObj);
+    },
+
+    setTech(newTech) {
+      tech = newTech;
+    },
+
+    duration(dur) {
+      return dur / player.playbackRate();
+    },
+
+    currentTime(ct) {
+      return ct / player.playbackRate();
+    },
+
+    setCurrentTime(ct) {
+      return ct * player.playbackRate();
+    }
+  };
 };
 
 // Register the plugin with video.js.
-registerPlugin('playbackrateAdjuster', playbackrateAdjuster);
+videojs.use('*', playbackrateAdjuster);
 
 // Include the version number.
 playbackrateAdjuster.VERSION = '__VERSION__';
