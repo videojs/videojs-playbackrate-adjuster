@@ -2,6 +2,9 @@
 
 A Video.js 6 middleware that adjusts controls based on playback rate
 
+When the playback rate is adjusted in from the menu, the middleware tells the player that the duration and times have changes and then uses the current playback rate to adjust the times in the control bar.
+For example, when the player is playing back in 2x, a 20 minute video will look like a 10 minute video.
+
 ## Installation
 
 ```sh
