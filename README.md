@@ -1,5 +1,7 @@
 # videojs-playbackrate-adjuster
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/videojs/videojs-playbackrate-adjuster.svg)](https://greenkeeper.io/)
+
 A Video.js 6 middleware that adjusts controls based on playback rate
 
 ## Installation
