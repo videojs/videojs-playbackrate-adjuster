@@ -1,6 +1,6 @@
 {
   "name": "videojs-playbackrate-adjuster",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Video.js 6 middleware that adjusts controls based on playback rate",
   "main": "dist/es5/index.js",
   "scripts": {
