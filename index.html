@@ -4,9 +4,16 @@
   <meta charset="utf-8">
   <title>videojs-playbackrate-adjuster Demo</title>
   <link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">
+  <style>
+    .video-js {
+      width: 720px;
+      height: 405px;
+    }
+  </style>
 </head>
 <body>
   <video id="videojs-playbackrate-adjuster-player" class="video-js vjs-default-skin" controls>
+    <source src="//d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8" type="application/x-mpegurl">
     <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
     <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
   </video>
@@ -17,11 +24,13 @@
   </ul>
   <script src="node_modules/video.js/dist/video.js"></script>
   <script src="dist/browser/videojs-playbackrate-adjuster.js"></script>
+  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
   <script>
     (function(window, videojs) {
-      var player = window.player = videojs('videojs-playbackrate-adjuster-player');
+      var player = window.player = videojs('videojs-playbackrate-adjuster-player', {
+        playbackRates: [0.5, 1, 1.5, 2, 4]
+      });
 
-      player.playbackrateAdjuster();
     }(window, window.videojs));
   </script>
 </body>
