@@ -50,5 +50,16 @@
   },
   "devDependencies": {
     "videojs-spellbook": "^2.0.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/videojs/videojs-playbackrate-adjuster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/videojs/videojs-playbackrate-adjuster/issues"
+  },
+  "homepage": "https://github.com/videojs/videojs-playbackrate-adjuster#readme"
 }
